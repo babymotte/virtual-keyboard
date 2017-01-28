@@ -3,9 +3,6 @@ package net.bbmsoft.keyboard;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public enum KeyCode {
 
 	ERROR(null, new int[] { 0x00 }, null, new int[] { 50 }, false),
@@ -122,8 +119,6 @@ public enum KeyCode {
 	WAKE(null, new int[] { 0xe0, 0x63 }, null, new int[] { 0 }, false),
 	PAUSE(null, new int[] {0xe1, 0x14, 0x77, 0xe1, 0xf0, 0x14, 0x77}, null, new int[] { 126 }, false);
 
-	private static final Logger log = LoggerFactory.getLogger(KeyCode.class);
-
 	private static Map<int[], KeyCode> set1Map;
 	private static Map<int[], KeyCode> set2Map;
 	private static Map<int[], KeyCode> set3Map;
@@ -213,7 +208,7 @@ public enum KeyCode {
 
 			overrides = set1Map.putIfAbsent(this.set1Code, this);
 			if (overrides != null) {
-				log.warn("KeyCode {} overrides KeyCode {} in {} because it has the same scna code.", overrides, keyCode,
+				System.err.printf("KeyCode %s overrides KeyCode %s in %s because it has the same scan code.\n", overrides, keyCode,
 						ScanCodeSet.SET_1);
 			}
 		}
@@ -226,7 +221,7 @@ public enum KeyCode {
 
 			overrides = set2Map.putIfAbsent(this.set2Code, this);
 			if (overrides != null) {
-				log.warn("KeyCode {} overrides KeyCode {} in {} because it has the same scna code.", overrides, keyCode,
+				System.err.printf("KeyCode %s overrides KeyCode %s in %s because it has the same scan code.\n", overrides, keyCode,
 						ScanCodeSet.SET_2);
 			}
 		}
@@ -239,7 +234,7 @@ public enum KeyCode {
 
 			overrides = set3Map.putIfAbsent(this.set3Code, this);
 			if (overrides != null) {
-				log.warn("KeyCode {} overrides KeyCode {} in {} because it has the same scna code.", overrides, keyCode,
+				System.err.printf("KeyCode %s overrides KeyCode %s in %s because it has the same scan code.\n", overrides, keyCode,
 						ScanCodeSet.SET_3);
 			}
 		}
@@ -252,7 +247,7 @@ public enum KeyCode {
 
 			overrides = setUsbMap.putIfAbsent(this.setUsbCode, this);
 			if (overrides != null) {
-				log.warn("KeyCode {} overrides KeyCode {} in {} because it has the same scna code.", overrides, keyCode,
+				System.err.printf("KeyCode %s overrides KeyCode %s in %s because it has the same scan code.\n", overrides, keyCode,
 						ScanCodeSet.SET_USB);
 			}
 		}
