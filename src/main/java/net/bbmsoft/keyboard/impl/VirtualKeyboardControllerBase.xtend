@@ -85,7 +85,7 @@ abstract class VirtualKeyboardControllerBase implements VirtualKeyboardControlle
 				throw new UnsupportedOperationException('''Unknown scan code set: «set»''')
 		}
 
-		if (result == null) {
+		if (result === null) {
 			throw new UnsupportedOperationException('''«set» support is not yet implemented!''')
 		}
 
@@ -98,7 +98,7 @@ abstract class VirtualKeyboardControllerBase implements VirtualKeyboardControlle
 
 		val makeCode = code.toMakeCode
 
-		if (set == SET_1 || set == SET_2 && code == PAUSE) {
+		if (set === SET_1 || set === SET_2 && code === PAUSE) {
 			return null
 		}
 
@@ -115,7 +115,7 @@ abstract class VirtualKeyboardControllerBase implements VirtualKeyboardControlle
 				throw new UnsupportedOperationException('''Unknown scan code set: «set»''')
 		}
 
-		if (result == null) {
+		if (result === null) {
 			throw new UnsupportedOperationException('''«set» support is not yet implemented!''')
 		}
 
@@ -125,7 +125,7 @@ abstract class VirtualKeyboardControllerBase implements VirtualKeyboardControlle
 	private def int[] toSet1BreakCode(int[] makeCode) {
 
 		// TODO check if pre-calculating these values gives a performance improvement
-		if (makeCode.head == 0xe0) {
+		if (makeCode.head === 0xe0) {
 			#[0xe0] + makeCode.tail.map[0x80 + it]
 		} else {
 			makeCode.map[0x80 + it]
@@ -135,7 +135,7 @@ abstract class VirtualKeyboardControllerBase implements VirtualKeyboardControlle
 	private def int[] toSet2BreakCode(int[] makeCode) {
 
 		// TODO check if pre-calculating these values gives a performance improvement
-		if (makeCode.head == 0xe0) {
+		if (makeCode.head === 0xe0) {
 			#[0xe0, 0xf0] + makeCode.tail.map[0x80 + it]
 		} else {
 			#[0xf0] + makeCode.map[0x80 + it]

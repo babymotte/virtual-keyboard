@@ -122,7 +122,7 @@ class RemoteKeyboardControllerWrapper implements VirtualKeyboardController {
 			val remoteListener = synchronized (this.listenerMap) {
 					this.listenerMap.remove(listener)
 				}
-			if (remoteListener != null) {
+			if (remoteListener !== null) {
 				this.remoteController.removeListener(remoteListener)
 				return true
 			} else {

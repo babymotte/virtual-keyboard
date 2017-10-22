@@ -80,23 +80,23 @@ abstract class ThreadSafeVirtualKeyboardIOHandlerBase implements VirtualKeyboard
 
 	private def void doFireBreak(KeyCode keyCode, int[] breakCode) {
 
-		if (keyCode == SHIFT_L || keyCode == SHIFT_R) {
+		if (keyCode === SHIFT_L || keyCode === SHIFT_R) {
 			this.shift.release
 		}
 
-		if (keyCode == CTRL_L || keyCode == CTRL_L) {
+		if (keyCode === CTRL_L || keyCode === CTRL_L) {
 			this.ctrl.release
 		}
 
-		if (keyCode == ALT_L) {
+		if (keyCode === ALT_L) {
 			this.alt.release
 		}
 
-		if (keyCode == ALT_R) {
+		if (keyCode === ALT_R) {
 			this.altGraph.release
 		}
 
-		if (keyCode == OS_L || keyCode == OS_R) {
+		if (keyCode === OS_L || keyCode === OS_R) {
 			this.os.release
 		}
 
@@ -116,37 +116,37 @@ abstract class ThreadSafeVirtualKeyboardIOHandlerBase implements VirtualKeyboard
 
 	private def void doFireMake(KeyCode keyCode, boolean typematic, int[] makeCode) {
 
-		if ((keyCode == SHIFT_L || keyCode == SHIFT_R) && !typematic) {
+		if ((keyCode === SHIFT_L || keyCode === SHIFT_R) && !typematic) {
 			this.shift.press
 		}
 
-		if ((keyCode == CTRL_L || keyCode == CTRL_R) && !typematic) {
+		if ((keyCode === CTRL_L || keyCode === CTRL_R) && !typematic) {
 			this.ctrl.press
 		}
 
-		if (keyCode == ALT_L && !typematic) {
+		if (keyCode === ALT_L && !typematic) {
 			this.alt.press
 		}
 
-		if (keyCode == ALT_R && !typematic) {
+		if (keyCode === ALT_R && !typematic) {
 			this.altGraph.press
 		}
 
-		if ((keyCode == OS_L || keyCode == OS_R) && !typematic) {
+		if ((keyCode === OS_L || keyCode === OS_R) && !typematic) {
 			this.os.press
 		}
 
-		if (keyCode == capsOffKey && this.capsLockOn) {
+		if (keyCode === capsOffKey && this.capsLockOn) {
 			this.capsLockOn = false
-		} else if (keyCode == CAPS_LOCK && !typematic) {
+		} else if (keyCode === CAPS_LOCK && !typematic) {
 			this.capsLockOn = true
 		}
 
-		if (keyCode == NUM_LOCK && !typematic) {
+		if (keyCode === NUM_LOCK && !typematic) {
 			this.numLockOn = !this.numLockOn
 		}
 
-		if (keyCode == SCROLL_LOCK && !typematic) {
+		if (keyCode === SCROLL_LOCK && !typematic) {
 			this.scrollLockOn = !this.scrollLockOn
 		}
 

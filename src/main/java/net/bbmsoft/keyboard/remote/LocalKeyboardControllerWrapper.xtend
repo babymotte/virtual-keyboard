@@ -37,7 +37,7 @@ class LocalKeyboardControllerWrapper extends UnicastRemoteObject implements Remo
 
 	override armListener(Listener listener) throws RemoteException {
 		synchronized (this.listenerMap) {
-			this.listenerMap.forEach[$1.armed = listener == $0]
+			this.listenerMap.forEach[$1.armed = listener === $0]
 		}
 	}
 
@@ -63,7 +63,7 @@ class LocalKeyboardControllerWrapper extends UnicastRemoteObject implements Remo
 				this.listenerMap.remove(listener)
 			}
 
-		if (localListener != null) {
+		if (localListener !== null) {
 			runLater[
 				this.localController.removeListener(localListener)
 			]
