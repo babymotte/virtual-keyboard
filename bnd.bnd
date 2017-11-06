@@ -1,0 +1,8 @@
+src: src/main/java,target/src-gen/main/xtend
+bin: target/classes
+Private-Package: \
+	net.bbmsoft.keyboard.impl,\
+	net.bbmsoft.keyboard.impl.modifiers
+Export-Package: \
+	net.bbmsoft.keyboard,\
+	net.bbmsoft.keyboard.remote
